@@ -1,7 +1,11 @@
 module.exports.config = {
-    uri: 'mongodb+srv://admin:anime@cluster0-e7lsm.mongodb.net/test?retryWrites=true',
+    uri: process.env.DB_URI == null ? 
+		'mongodb+srv://admin:anime@cluster0-e7lsm.mongodb.net/test?retryWrites=true' :
+		process.env.DB_URI,
     options: {
-        dbName: 'reddit-app',
+        dbName: process.env.DB_NAME == null ? 
+			'reddit-app' : 
+			process.env.DB_NAME,
         useNewUrlParser: true
     },
 }
